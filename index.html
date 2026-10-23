@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Carlos Cobos Gordillo | Ciberseguridad & IA</title>
+    <style>
+        :root {
+            --primary-color: #0f172a; /* Azul oscuro elegante */
+            --accent-color: #2563eb;  /* Azul brillante */
+            --secondary-accent: #0284c7; /* Azul ciber */
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --border-color: #cbd5e1;
+            --badge-bg: #eff6ff;
+            --badge-text: #1e40af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .profile-photo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: #334155;
+        }
+        .resume-container {
+            max-width: 920px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 40px 35px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 30px;
+            padding: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            text-align: justify;
+            color: #475569;
+        }
+
+        .target-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .role-badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            border: 1px solid #bfdbfe;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .timeline-item .date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .project-card {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .project-card.featured {
+            border-left-color: #0284c7;
+            background-color: #f0f9ff;
+        }
+
+        .project-card h4 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-card p {
+            font-size: 0.88rem;
+            color: #334155;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .tag.highlight {
+            background-color: #e0f2fe;
+            border-color: #7dd3fc;
+            color: #0369a1;
+            font-weight: 600;
+        }
+
+        .info-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+        }
+
+        .info-list strong {
+            color: var(--primary-color);
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+
+        .contact-info a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease, border-bottom 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+</style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <!-- CABECERA -->
+        <header>
+            <div class="profile-photo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQFhbiEuPhOyQw/profile-displayphoto-scale_200_200/B4EaFpcr8EHwAg-/0/1792770491752?e=1794441600&v=beta&t=_25V3l6h5NKZS4Mp3l7-_8NWP2-bp3Irtrysso1AVn8" alt="Foto de Carlos Cobos Gordillo" class="profile-photo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%2338bdf8\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';">
+            </div>
+            <h1>Carlos Cobos Gordillo</h1>
+            <p class="subtitle">Estudiante de Ingeniería Informática | Orientado a Inteligencia Artificial y Ciberseguridad</p>
+            <div class="contact-info">
+                <span>📍 Sevilla, España</span>
+                <span>📧 ccobgorcdm17@gmail.com</span>
+                <span>📱 +34 622519986</span>
+                <a href="https://www.linkedin.com/in/carlos-cobos-gordillo-28551a446/?isSelfProfile=true" target="_blank">🔗 linkedin.com/in/carloscobos</a>
+                <a href="https://github.com/Carcobgor" target="_blank">💻 github.com/Carcobgor</a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="left-column">
+                <section>
+                    <h2>Perfil Profesional</h2>
+                    <p class="profile-text">
+                        Estudiante de 4º curso del Grado en Ingeniería Informática (Tecnologías Informáticas), 
+                        23 años. Con un perfil técnico centrado en la <strong>Inteligencia Artificial</strong> (Deep Learning) y la <strong>Ciberseguridad</strong> (defensa de red, seguridad en protocolos), complementado con sólida base en gestión de sistemas y desarrollo. Proactivo, enfocado al trabajo en equipo y con habilidades avanzadas de comunicación. Busco incorporarme al sector profesional en proyectos donde pueda aportar y seguir desarrollándome en estas dos áreas clave.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Objetivo & Áreas de Interés</h2>
+                    <div class="target-roles">
+                        <span class="role-badge">IA & Deep Learning</span>
+                        <span class="role-badge">Ciberseguridad Junior / SOC</span>
+                        <span class="role-badge">Desarrollo Python / DevSecOps</span>
+                        <span class="role-badge">Seguridad en Sistemas & Redes</span> 
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Proyectos Destacados</h2>
+                    
+                    
+                    <div class="project-card featured">
+                        <h4>🤖 Inteligencia Artificial & Deep Learning</h4>
+                        <p>Desarrollo y entrenamiento de modelos de redes neuronales profundas (Deep Learning) aplicados a resolución de problemas complejos y procesamiento de datos mediante Python.</p>
+                    </div>
+
+                    <div class="project-card featured">
+                        <h4>🛡️ Ciberseguridad & Defensa de Sistemas</h4>
+                        <p>Diseño y configuración de <strong>Firewalls</strong>, despliegue de <strong>conexiones seguras</strong> (TLS/VPN) y desarrollo de estrategias defensivas ante ataques <strong>Man-in-the-Middle (MiTM)</strong> y <strong>Timing Attacks</strong>. Automatización de auditorías y pruebas mediante Bash scripting.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>🌐 Desarrollo Web & Bases de Datos</h4>
+                        <p>Diseño de plataformas web funcionales e integradas con bases de datos relacionales estructuradas en SQL, garantizando un rendimiento eficiente y seguro.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Educación</h2>
+                    <div class="timeline-item">
+                        <h3>Grado en Ingeniería Informática - Tecnologías Informáticas</h3>
+                        <div class="date">4º Curso en activo</div>
+                        <p style="font-size: 0.9rem;">Formación especializada en Ciberseguridad, Inteligencia Artificial, Arquitectura de Computadores, Redes y Gestión de Sistemas.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Competencias Personales</h2>
+                    <div class="tag-container">
+                        <span class="tag">Trabajo en Equipo</span>
+                        <span class="tag">Proactividad</span>
+                        <span class="tag">Comunicación Eficaz</span>
+                        <span class="tag">Capacidad de Adaptación</span>
+                        <span class="tag">Resolución de Problemas</span>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="right-column">
+                <section>
+                    <h2>Conocimientos Técnicos</h2>
+                    <div class="tag-container">
+                        <span class="tag highlight">Python</span>
+                        <span class="tag highlight">Java</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Haskell</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">C</span>
+                        <span class="tag">Ensamblador</span>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Especialidades & Entornos</h2>
+                    <div class="tag-container">
+                        <span class="tag highlight">Ciberseguridad</span>
+                        <span class="tag highlight">Deep Learning</span>
+                        <span class="tag highlight">Bash Scripting</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Gestión de Sistemas</span>
+                        <span class="tag">Linux / Unix</span>
+                        <span class="tag">Bases de Datos</span>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Idiomas</h2>
+                    <ul class="info-list">
+                        <li><strong>Español:</strong> Nativo</li>
+                        <li><strong>Inglés:</strong> C1 Advanced (Cambridge)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Información Adicional</h2>
+                    <ul class="info-list">
+                        <li><strong>Carné de conducir:</strong> Tipo B</li>
+                        <li><strong>Vehículo:</strong> Propio</li>
+                        <li><strong>Disponibilidad:</strong> Incorporación adaptable</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
